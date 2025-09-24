@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package ticker;
+
+option go_package = 'proto/ticker';
+
+service TickerService {
+    rpc Subscribe (TickerRequest) returns (TickerAck);
+    rpc UnSubscribe (TickerRequest) returns (TickerAck);
+}
+
+message TickerRequest {
+    string symbol=1;
+}
+
+message TickerAck {
+    string message = 1;
+}

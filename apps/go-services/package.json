@@ -1,0 +1,12 @@
+{
+  "name": "go-services",
+  "scripts": {
+    "dev:ticker-service": "go build -o ./bin/ticker-service ./ticker-service && go run ./ticker-service",
+    "dev": "pnpm run dev:ticker-service",
+    "build:ticker-service": "go build -o ./bin/ticker-service ./ticker-service",
+    "build": "pnpm run build:ticker-service"
+  },
+  "dependencies": {
+    "@repo/proto": "workspace:*"
+  }
+}
