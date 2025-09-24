@@ -10,12 +10,18 @@ type rdb struct {
 	client *redis.Client
 }
 
-func(rdb *rdb) ConnectToRedis() *redis.Client {
-	client:=redis.NewClient(&redis.Options{
+
+// constructor ?
+// primary keys?
+// methods?
+
+func ConnectToRedis() *rdb {
+	r:=redis.NewClient(&redis.Options{
 		Addr: "localhost:6379",
 	})
-	return client;
+	return &rdb{client:r}
 }
+
 func (rdb *rdb) PublishToRedis(ctx context.Context, channel string, data []byte) *redis.IntCmd{
 	published:=rdb.client.Publish(ctx, channel, data)
 	return published
